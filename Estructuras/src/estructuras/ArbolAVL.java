@@ -69,26 +69,26 @@ public class ArbolAVL {
         Collator comparador = Collator.getInstance();
         comparador.setStrength(Collator.TERTIARY);
         NodoAVL nuevoPadre = subAr;
-        if(comparador.compare(nuevo.Nombre, subAr.Nombre)<0){
+        if(comparador.compare(nuevo.Correo, subAr.Correo)<0){
             if(subAr.Izq==null){
                 subAr.Izq = nuevo;
             }else{
                 subAr.Izq = insertarAVL(nuevo,subAr.Izq);
                 if((obtenerFE(subAr.Izq)-obtenerFE(subAr.Der)==2)){
-                    if(comparador.compare(nuevo.Nombre, subAr.Izq.Nombre)<0){
+                    if(comparador.compare(nuevo.Correo, subAr.Izq.Correo)<0){
                         nuevoPadre = rotacionIzq(subAr);
                     }else{
                         nuevoPadre = rotacionDobleIzq(subAr);
                     }
                 }
             }
-        }else if(comparador.compare(nuevo.Nombre, subAr.Nombre)>0){
+        }else if(comparador.compare(nuevo.Correo, subAr.Correo)>0){
             if(subAr.Der==null){
                 subAr.Der = nuevo;
             }else{
                 subAr.Der = insertarAVL(nuevo,subAr.Der);
                 if((obtenerFE(subAr.Der)-obtenerFE(subAr.Izq)==2)){
-                    if(comparador.compare(nuevo.Nombre, subAr.Der.Nombre)>0){
+                    if(comparador.compare(nuevo.Correo, subAr.Der.Correo)>0){
                         nuevoPadre = rotacionDer(subAr);
                     }else{
                         nuevoPadre = rotacionDobleDer(subAr);
@@ -107,8 +107,8 @@ public class ArbolAVL {
         }
         return nuevoPadre;
     }
-    public void insertar(String nombre){
-        NodoAVL nuevo = new NodoAVL(nombre);
+    public void insertar(String nombre, String correo){
+        NodoAVL nuevo = new NodoAVL(nombre, correo);
         if(Raiz==null){
             Raiz = nuevo;
         }else{

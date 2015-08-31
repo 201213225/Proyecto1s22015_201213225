@@ -12,10 +12,11 @@ package estructuras;
 public class NodoAVL {
     NodoAVL Izq;
     NodoAVL Der;
-    String Nombre;
+    String Nombre,Correo;
     int fe;
-    public NodoAVL(String Nombre){
+    public NodoAVL(String Nombre,String Correo){
         this.Nombre = Nombre;
+        this.Correo = Correo;
         this.Izq = null;
         this.Der = null;
         this.fe = 0;
